@@ -2,7 +2,8 @@ import pika
 import traceback
 import time
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-cluster'))
+credentials = pika.PlainCredentials('sender', 'sender')
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-cluster',5672,'/',credentials)))
 def Message():
   channel = connection.channel()
   channel.queue_declare(queue='hello')
