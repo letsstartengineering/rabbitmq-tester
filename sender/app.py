@@ -23,4 +23,4 @@ def every(delay):
       traceback.print_exc()
     next_time += (time.time() - next_time) // delay * delay + delay
 
-every(300)
+every(5)
